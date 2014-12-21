@@ -1,5 +1,6 @@
 from nose.tools import eq_, raises
-from nanodb_driver.driver import Driver, ConnectionTimedOut
+from nanodb_driver.driver import Driver, ConnectionTimedOut, ServerRequestError
+from test.helper import MockServer
 
 
 class TestDriver(object):
@@ -24,3 +25,17 @@ class TestDriver(object):
     def test_is_connected(self):
         d = Driver(timeout=100)
         eq_(d.is_connected, False)
+
+        s = MockServer(1)
+        s.start()
+        d = Driver(timeout=100)
+        eq_(d.is_connected, True)
+        s.join()
+
+    @raises(ServerRequestError)
+    def test_server_req(self):
+        s = MockServer(1)
+        s.start()
+        d = Driver(timeout=100)
+        d._send_command("error")
+        s.join()
