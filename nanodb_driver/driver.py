@@ -1,5 +1,6 @@
 import zmq
 
+__all__ = ['Driver', 'DriverError', 'ConnectionTimedOut', 'ServerRequestError']
 
 class DriverError(Exception):
     """Base error for driver."""
