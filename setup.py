@@ -1,9 +1,8 @@
 from setuptools import setup
-import nanodb_driver
 
 setup(
     name='nanodb_driver',
-    version=nanodb_driver.__version__,
+    version="0.0.2",
     author='Pierre-Marie Dartus',
     author_email='dartus.pierremarie@gmail.com',
     packages=['nanodb_driver'],
