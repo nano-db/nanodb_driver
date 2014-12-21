@@ -8,6 +8,7 @@ setup(
     author_email='dartus.pierremarie@gmail.com',
     packages=['nanodb_driver'],
     license='LICENSE.txt',
+    url='https://github.com/nano-db/nanodb_driver',
     description='Driver to interface application with a NanoDB server',
     long_description=open('README.rst').read(),
     install_requires=[
