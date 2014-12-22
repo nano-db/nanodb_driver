@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='nanodb_driver',
-    version="0.0.2",
+    version="0.0.3",
     author='Pierre-Marie Dartus',
     author_email='dartus.pierremarie@gmail.com',
     packages=['nanodb_driver'],
