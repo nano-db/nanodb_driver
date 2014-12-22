@@ -111,16 +111,18 @@ class Driver(object):
             "cube": cube_name
         })
 
-    def serialize(self, cube_name):
+    def serialize(self, cube_name, path=None):
         """Serialize cube in a .nano file and return the name of the file
 
         :param cube_name: cube to serialize
         :type cube_name: str.
         :return: str.
         """
-        return self._send_command("serialize", {
-            "cube": cube_name
-        })
+        msg = { "cube": cube_name }
+        if path is not None:
+            msg['path'] = path
+
+        return self._send_command("serialize", msg)
 
     def create_cube(self, input_file, config_file):
         """Create a cube based input file and config file
